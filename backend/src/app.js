@@ -1,23 +1,38 @@
 
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
+// const express = require('express');
+// const cors = require('cors');
+// const { connectDB } = require("./config/db");
+// require('dotenv').config();
+// const { bookRouter } = require('../routes/bookRoutes');
+
+// const app = express();
+
+
+// app.use(cors());
+// app.use(express.json()); 
+
+// connectDB();
+
+// app.use("/api/books", bookRouter);
+
+// module.exports = app;
+
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
+const { connectDB } = require("./config/db");
+const { bookRouter } = require("../routes/bookRoutes"); // make sure path is correct!
 
 const app = express();
 
-
+// Middleware
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URL)
-.then(()=>{console.log("mongodb connected")})
-.catch((e)=>console.error("database connection error" , e));
+// Connect DB
+connectDB();
 
-
-app.get('/', (req, res) => {
-  res.send('Hello from Express App 🚀');
-});
-
-
+// Routes
+app.use("/api/books", bookRouter);
 
 module.exports = app;
