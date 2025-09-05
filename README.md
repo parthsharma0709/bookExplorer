@@ -1,11 +1,11 @@
-# Book Explorer
+# Bookverse
 
 A full-stack web application to explore books with search, filters, and detailed views.
 
 ---
 
 ## Project Structure
-bookExplorer/
+bookverse/
 ├─ frontend/ # React app
 ├─ backend/ # Node.js/Express server
 ├─ scraper/ # Book scraper scripts
