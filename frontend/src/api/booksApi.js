@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = "http://localhost:3000/api/books";
+const BASE_URL =
+  process.env.REACT_APP_API_URL || "http://localhost:3000/api";
 
 export const fetchBooks = async (params = {}) => {
   const res = await axios.get(BASE_URL, { params });
