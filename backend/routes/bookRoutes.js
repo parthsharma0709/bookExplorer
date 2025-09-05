@@ -4,7 +4,7 @@ const { bookModel } = require("../src/dbSchema");
 const { scrapeBooks } = require("../../scraper/scraper");
 
 
-// GET /api/books
+
 router.get("/", async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
@@ -43,7 +43,7 @@ router.get("/:id", async (req, res) => {
   try {
     const bookId = req.params.id;
 
-    // Find book by _id
+    
     const book = await bookModel.findById(bookId);
 
     if (!book) {
@@ -52,18 +52,18 @@ router.get("/:id", async (req, res) => {
 
     res.json(book);
   } catch (err) {
-    // Handle invalid ObjectId errors or other errors
+   
     res.status(500).json({ error: "Server error", details: err.message });
   }
 });
 
 router.post("/refresh", async (req, res) => {
   try {
-    console.log("🚀 Refresh endpoint triggered");
+    console.log("Refresh endpoint triggered");
     await scrapeBooks(); // manually trigger scraping
     res.json({ message: "Scraping completed and database refreshed!" });
   } catch (err) {
-    console.error("❌ Refresh failed:", err);
+    console.error("Refresh failed:", err);
     res.status(500).json({ error: "Scraping failed", details: err.message });
   }
 });

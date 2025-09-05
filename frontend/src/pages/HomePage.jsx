@@ -63,7 +63,7 @@ const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
       <h1 className="text-4xl md:text-5xl font-extrabold mb-12 text-center tracking-tight 
                bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
                text-transparent bg-clip-text">
-  Book Explorer
+ Bookverse
 </h1>
 
 
