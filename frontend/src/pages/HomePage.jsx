@@ -22,14 +22,14 @@ export default function HomePage() {
   });
 
 
-
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
   const fetchBooks = async (currentPage = 1, currentFilters = filters) => {
     
     try {
       setLoading(true);
       setError("");
       const query = new URLSearchParams({ page: currentPage, ...currentFilters }).toString();
-      const res = await axios.get(`http://localhost:3000/api/books?${query}`);
+      const res = await axios.get(`${BASE_URL}/books?${query}`);
       setBooks(res.data.books);
       setPage(res.data.page);
       setTotalPages(res.data.totalPages);

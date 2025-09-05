@@ -9,11 +9,12 @@ export default function BookDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
   useEffect(() => {
     const fetchBook = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:3000/api/books/${id}`);
+        const res = await axios.get(`${BASE_URL}/books/${id}`);
         setBook(res.data);
         setLoading(false);
       } catch (err) {
