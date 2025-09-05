@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "projects": [
+    {
+      "name": "book-explorer-frontend",
+      "rootDirectory": "frontend"
+    },
+    {
+      "name": "book-explorer-backend",
+      "rootDirectory": "backend"
+    }
+  ]
+}

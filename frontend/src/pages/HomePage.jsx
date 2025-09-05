@@ -21,7 +21,10 @@ export default function HomePage() {
     maxPrice: "",
   });
 
+
+
   const fetchBooks = async (currentPage = 1, currentFilters = filters) => {
+    
     try {
       setLoading(true);
       setError("");
@@ -32,7 +35,7 @@ export default function HomePage() {
       setTotalPages(res.data.totalPages);
       setLoading(false);
     } catch (err) {
-      setError("Failed to fetch books.");
+      setError("Failed to fetch books.",err);
       setLoading(false);
     }
   };
